@@ -12,30 +12,23 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <BreezeApplicationLogo class="block h-9 w-auto" />
-                                </Link>
-                            </div>
+        <div class="bg-gray-100 font-sans leading-normal tracking-normal">
+            
+             <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
 
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </BreezeNavLink>
-                            </div>
-                        </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
+                <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
+
+                    <div class="w-1/2 pl-2 md:pl-0">
+                        <a class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
+                            <i class="fas fa-sun text-pink-600 pr-3"></i> Automated Situational Reporting
+                        </a>
+                    </div>
+                    <div class="w-1/2 pr-0">
+                        <div class="flex relative inline-block float-right">
+
+                            <div class="relative text-sm">
+                              
                                 <BreezeDropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -56,55 +49,75 @@ const showingNavigationDropdown = ref(false);
                                     </template>
                                 </BreezeDropdown>
                             </div>
+
+
+                            <div class="block lg:hidden pr-4">
+                                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none">
+                                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <title>Menu</title>
+                                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
-                            <button @click="showingNavigationDropdown = ! showingNavigationDropdown" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                    <path :class="{'hidden': showingNavigationDropdown, 'inline-flex': ! showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                    <path :class="{'hidden': ! showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </div>
+
+
+                    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white z-20" id="nav-content">
+                        <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
+                            <li class="mr-6 my-2 md:my-0">
+                                <Link :href="route('dashboard')">
+                                    <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
+                                </Link>
+                            </li>
+                            <li class="mr-6 my-2 md:my-0">
+                                <Link :href="route('situation-overview')">
+                                    <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Situation overview</span>
+                                </Link>
+                            </li>
+                        </ul>
+
+                        <div class="relative pull-right pl-4 pr-4 md:pr-0">
+                            <input type="search" placeholder="Search" class="w-full bg-gray-100 text-sm text-gray-800 transition border focus:outline-none focus:border-gray-700 rounded py-1 px-2 pl-10 appearance-none leading-normal">
+                            <div class="absolute search-icon" style="top: 0.375rem;left: 1.75rem;">
+                                <svg class="fill-current pointer-events-none text-gray-800 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
                                 </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Responsive Navigation Menu -->
-                <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </BreezeResponsiveNavLink>
-                    </div>
-
-                    <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
-                        <div class="px-4">
-                            <div class="font-medium text-base text-gray-800">{{ $page.props.auth.user.name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
+                            </div>
                         </div>
 
-                        <div class="mt-3 space-y-1">
-                            <BreezeResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
-                            </BreezeResponsiveNavLink>
-                        </div>
                     </div>
+
                 </div>
             </nav>
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
+            <!--Container-->
+            <div class="container w-full mx-auto pt-20">
 
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+                
+
+                <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+
+                    <!-- Page Heading -->
+                    <header class="bg-white shadow" v-if="$slots.header">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <slot name="header" />
+                        </div>
+                    </header>
+
+                    <!-- Page Content -->
+                    <main>
+                        <slot />
+                    </main>
+
+
+                </div>
+
+
+            </div>
+            <!--/container-->
+            
         </div>
     </div>
 </template>

@@ -8,7 +8,7 @@
       <div
         class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
       >
-        <Link :href="route('/')" class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+        <Link :href="route('password.request')" class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
                     Vue Notus
         </Link>
         <button
@@ -38,9 +38,9 @@
           </li>
         </ul>
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-          <li class="flex items-center">
+          <!--li class="flex items-center">
             <PagesDropdown />
-          </li>
+          </li-->
           <li class="flex items-center">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
@@ -94,7 +94,7 @@
   </nav>
 </template>
 <script>
-import PagesDropdown from "@/components/Dropdowns/PagesDropdown.vue";
+//import PagesDropdown from "@/components/Dropdowns/PagesDropdown.vue";
 export default {
   data() {
     return {
@@ -107,7 +107,7 @@ export default {
     },
   },
   components: {
-    PagesDropdown,
+    //PagesDropdown,
   },
 };
 </script>

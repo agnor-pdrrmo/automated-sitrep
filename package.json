@@ -4,6 +4,15 @@
         "dev": "vite",
         "build": "vite build"
     },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "5.15.3",
+        "@popperjs/core": "2.9.1",
+        "@tailwindcss/forms": "0.2.1",
+        "chart.js": "2.9.4",
+        "core-js": "3.9.1",
+        "gulp": "4.0.2",
+        "gulp-append-prepend": "1.0.8"
+      },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-vue3": "^0.6.0",

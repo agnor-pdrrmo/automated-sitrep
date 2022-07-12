@@ -1,5 +1,6 @@
 import './bootstrap';
 import '../css/app.css';
+import '../js/assets/styles/tailwind.css';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';

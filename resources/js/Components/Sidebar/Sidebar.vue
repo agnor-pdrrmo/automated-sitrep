@@ -1,3 +1,27 @@
+<script>
+import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown.vue";
+import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
+import { Link } from '@inertiajs/inertia-vue3';
+
+export default {
+  data() {
+    return {
+      collapseShow: "hidden",
+    };
+  },
+  methods: {
+    toggleCollapseShow: function (classes) {
+      this.collapseShow = classes;
+    },
+  },
+  components: {
+    NotificationDropdown,
+    UserDropdown,
+  },
+};
+</script>
+
+
 <template>
   <nav
     class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
@@ -200,7 +224,7 @@
           </li>
 
           <li class="items-center">
-            <router-link
+            <!--router-link
               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
               to="/auth/register"
             >
@@ -208,7 +232,7 @@
                 class="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"
               ></i>
               Register
-            </router-link>
+            </router-link-->
           </li>
         </ul>
 
@@ -348,27 +372,3 @@
     </div>
   </nav>
 </template>
-); }
-
-<script>
-import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown.vue";
-import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
-import { Link } from '@inertiajs/inertia-vue3';
-
-export default {
-  data() {
-    return {
-      collapseShow: "hidden",
-    };
-  },
-  methods: {
-    toggleCollapseShow: function (classes) {
-      this.collapseShow = classes;
-    },
-  },
-  components: {
-    NotificationDropdown,
-    UserDropdown,
-  },
-};
-</script>

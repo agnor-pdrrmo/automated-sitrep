@@ -4,20 +4,6 @@ const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    purge: {
-        enabled: true,
-        content: [
-          "./**/*.html",
-          "./*.html",
-          "./**/*.js",
-          "./*.js",
-          "./**/*.vue",
-          "./*.vue",
-        ],
-        options: {
-          safelist: [],
-        },
-    },
 
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
